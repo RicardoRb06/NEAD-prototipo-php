@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SIGAA - Busca de Alunos</title>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <meta name="robots" content="noindex">
+        <link rel="stylesheet" href="assets/css/demo.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="info-sistema">
+                    <div>
+                        <h1>IF Sudeste MG - SIGAA</h1>
+                        <p>Sistema Integrado de Gestão de Atividades Acadêmicas</p>
+                    </div>
+                    <div class="sessao">
+    <span>Tempo de Sessão: 00:25</span>
+    <form method="get" action="index.html" id="form-sair">
+                <button type="submit" class="botao-sair">SAIR</button>
+    </form>
+</div>
+                </div>
+                <div class="painel-usuario">
+    <div class="dados">
+        <span><strong>Usuário:</strong> Ana Paula Souza</span>
+        <span><strong>Unidade:</strong> IF Sudeste MG</span>
+    </div>
+    <a href="#" class="modulos">▦ Módulos</a>
+</div>
+            </header>
+
+            <p class="aviso-demo">Demonstração estática com dados fictícios. O sistema completo roda em PHP, CodeIgniter e MySQL: <a href="https://github.com/RicardoRb06/NEAD-prototipo-php">ver o código</a>.</p>
+            <main class="conteudo">
+                <form id="form-busca" method="get" action="busca.html" class="formulario">
+    <h2 class="titulo">Busca de Alunos</h2>
+    <!-- Primeiro botão de envio: é ele que a tecla Enter aciona, não o de PDF. -->
+    <button type="submit" class="visualmente-oculto" tabindex="-1">Buscar</button>
+    <div class="campos">
+        <div class="linha-campo">
+            <label for="matricula">Matrícula:</label>
+            <input id="matricula" name="matricula" class="campo" type="text" autocomplete="off"
+                value="" autofocus>
+        </div>
+        <div class="linha-campo">
+            <label for="cpf">CPF:</label>
+            <input id="cpf" name="cpf" class="campo" type="text" inputmode="numeric" maxlength="14"
+                placeholder="000.000.000-00" autocomplete="off" value="">
+        </div>
+        <div class="linha-campo">
+            <label for="nome">Nome:</label>
+            <input id="nome" name="nome" class="campo largo" type="text" autocomplete="off"
+                value="">
+        </div>
+        <div class="linha-campo">
+            <label for="curso">Curso:</label>
+            <select id="curso" name="curso" class="lista">
+                <option value="">-- SELECIONE --</option>
+                                    <option value="1" >Engenharia Mecatrônica</option>
+                                    <option value="2" >Engenharia Elétrica</option>
+                                    <option value="3" >Eventos</option>
+                                    <option value="4" >Sistema de Informação</option>
+                            </select>
+        </div>
+        <div class="linha-campo">
+            <label for="campus">Campus:</label>
+            <select id="campus" name="campus" class="lista">
+                <option value="">-- SELECIONE --</option>
+                                    <option value="1" >Juiz de Fora</option>
+                                    <option value="2" >Barbacena</option>
+                                    <option value="3" >Rio Pomba</option>
+                                    <option value="4" >Santos Dumont</option>
+                                    <option value="5" >Manhuaçu</option>
+                                    <option value="6" >Cataguases</option>
+                            </select>
+        </div>
+        <div class="linha-campo">
+            <label for="tipo-ano">Buscar por ano de:</label>
+            <select id="tipo-ano" name="tipo_ano" class="lista">
+                <option value="">-- SELECIONE --</option>
+                <option value="ingresso" >Ingresso</option>
+                <option value="formacao" >Formação</option>
+            </select>
+        </div>
+        <div class="linha-campo">
+            <label for="ano">Ano:</label>
+            <input id="ano" name="ano" class="campo" type="number" inputmode="numeric" min="1" max="9999"
+                placeholder="ex: 2023" autocomplete="off" value="">
+        </div>
+    </div>
+    <div class="acoes">
+        <button type="submit" id="botao-pdf-todos" class="botao">
+            Baixar PDF com Todos os Resultados
+        </button>
+        <a href="busca.html" class="botao">Limpar</a>
+    </div>
+</form>
+
+<section class="tabela-resultados" aria-labelledby="titulo-resultados">
+    <h2 id="titulo-resultados" class="titulo">Alunos Encontrados</h2>
+    <div id="area-resultados"><p class="vazio">Carregando...</p></div>
+</section>
+            </main>
+
+            <footer class="rodape">
+                SIGAA | Instituto Federal do Sudeste de MG - (32) 3198-1456 |
+                Copyright © 2006-2026 - UFRN - sig17.ifsudestemg.edu.br.sig17 -
+                v4.11.3.96
+            </footer>
+        </div>
+
+        <script src="assets/js/busca.js"></script>
+    </body>
+</html>
+
+

@@ -1,0 +1,261 @@
+/* Paleta extraída do CSS do SIGAA IF Sudeste MG */
+:root {
+  --faixa: #C4D2EB;
+  --borda-azul: #6593CF;
+  --azul-escuro: #404E82;
+  --painel: #EFF3FA;
+  --linha-par: #F9FBFD;
+  --linha-impar: #EDF1F8;
+  --link: #003395;
+  --borda-campo: #7F9DB9;
+  --fundo: #E9EDF3;
+  --texto: #222222;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; height: 100%; }
+
+body {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+a { color: var(--link); }
+
+/* Container centralizado de largura fixa */
+.container {
+  width: 1000px;
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+.info-sistema {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, #3F6FB5, #1E3F72);
+  color: #FFFFFF;
+}
+.info-sistema h1 { margin: 0; font-size: 18px; font-weight: bold; }
+.info-sistema p { margin: 2px 0 0; font-size: 12px; color: #DCE6F5; }
+.sessao { display: flex; align-items: center; gap: 16px; font-size: 11px; white-space: nowrap; }
+
+.botao-sair {
+  background: #C0392B;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 3px;
+  padding: 3px 10px;
+  font: bold 11px verdana, sans-serif;
+  cursor: pointer;
+}
+.botao-sair:hover { background: #A93226; }
+
+.painel-usuario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--painel);
+  border-bottom: 1px solid var(--faixa);
+  font-size: 11px;
+}
+.painel-usuario .dados { display: flex; gap: 24px; flex-wrap: wrap; }
+.painel-usuario .modulos { font-weight: bold; text-decoration: none; }
+.painel-usuario .modulos:hover { text-decoration: underline; }
+
+/* Conteúdo */
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 20px;
+}
+
+/* Formulário estilo SIGAA */
+.formulario {
+  width: 620px;
+  max-width: 100%;
+  border: 1px solid var(--faixa);
+  background: var(--linha-par);
+}
+.formulario .titulo,
+.tabela-resultados .titulo {
+  background: var(--faixa);
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px;
+  margin: 0;
+}
+.formulario .campos { padding: 6px 0; }
+.linha-campo {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+}
+.linha-campo label { text-align: right; font-weight: bold; }
+
+.campo, .lista {
+  height: 22px;
+  width: 300px;
+  border: 1px solid var(--borda-campo);
+  background: #FFFFFF;
+  font: 12px verdana, sans-serif;
+  color: var(--texto);
+  padding: 0 4px;
+}
+.campo::placeholder { color: #8A8A8A; }
+.campo:focus, .lista:focus, .botao:focus-visible, .botao-sair:focus-visible, .botao-pdf:focus-visible {
+  outline: 2px solid var(--borda-azul);
+  outline-offset: 1px;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px;
+  background: var(--faixa);
+}
+.botao {
+  background: #F0F0F0;
+  border: 1px solid #707070;
+  border-radius: 3px;
+  padding: 2px 12px;
+  font: 12px verdana, sans-serif;
+  cursor: pointer;
+}
+.botao:hover { background: #E3E3E3; }
+
+.mensagem-erro {
+  margin: 6px 8px 0;
+  padding: 6px 8px;
+  background: #FDECEA;
+  border: 1px solid #E6A8A2;
+  color: #8A1F14;
+  font-size: 11px;
+}
+.mensagem-erro[hidden] { display: none; }
+
+/* Tabela de resultados */
+.tabela-resultados {
+  width: 100%;
+  border: 1px solid var(--faixa);
+  overflow-x: auto;
+}
+.tabela-resultados table { width: 100%; border-collapse: collapse; }
+.tabela-resultados th {
+  background: #DEDFE3;
+  text-align: left;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-bottom: 1px solid #A9A9A9;
+}
+.tabela-resultados td { padding: 4px 6px; }
+.tabela-resultados tbody tr:nth-child(odd) { background: var(--linha-par); }
+.tabela-resultados tbody tr:nth-child(even) { background: var(--linha-impar); }
+.tabela-resultados tbody tr:hover { background: #DCE6F5; }
+.tabela-resultados .col-acao { width: 1%; white-space: nowrap; text-align: center; }
+.tabela-resultados .vazio {
+  text-align: center;
+  font-style: italic;
+  padding: 14px;
+  background: var(--linha-par);
+}
+.total-registros {
+  text-align: center;
+  font-weight: bold;
+  padding: 4px;
+  background: var(--faixa);
+}
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  background: var(--faixa);
+}
+.paginacao .botao:disabled { opacity: .5; cursor: not-allowed; }
+
+.botao-pdf {
+  background: #F0F0F0;
+  border: 1px solid #707070;
+  border-radius: 3px;
+  padding: 1px 8px;
+  font: 11px verdana, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.botao-pdf:hover { background: #E3E3E3; }
+
+/* Login */
+.caixa-login { width: 420px; }
+.caixa-login .linha-campo { grid-template-columns: 110px 1fr; }
+.caixa-login .campo { width: 100%; max-width: 220px; }
+.credenciais {
+  width: 420px;
+  max-width: 100%;
+  border: 1px solid var(--borda-azul);
+  background: var(--painel);
+  padding: 10px 12px;
+  line-height: 1.6;
+}
+.credenciais h2 { margin: 0 0 4px; font-size: 12px; color: var(--azul-escuro); }
+.credenciais p { margin: 0; }
+.credenciais code { font-family: verdana, sans-serif; font-weight: bold; }
+
+/* Rodapé */
+.rodape {
+  background: var(--faixa);
+  text-align: center;
+  font-size: 11px;
+  padding: 8px 16px;
+}
+
+@media (max-width: 700px) {
+  .info-sistema { flex-direction: column; align-items: flex-start; }
+  .linha-campo { grid-template-columns: 1fr; }
+  .linha-campo label { text-align: left; }
+  .campo, .campo.largo, .lista { width: 100%; }
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Ajustes da versão PHP: ações que agora são links e formulários */
+a.botao, a.botao-pdf {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+.botao.desabilitado { opacity: .5; cursor: not-allowed; }
+.botao.desabilitado:hover { background: #F0F0F0; }
+a.botao:focus-visible, a.botao-pdf:focus-visible {
+  outline: 2px solid var(--borda-azul);
+  outline-offset: 1px;
+}
+.sessao form { margin: 0; }
+.tabela-resultados .mensagem-erro { margin: 6px; }
