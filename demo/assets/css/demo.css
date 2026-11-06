@@ -1,0 +1,9 @@
+/* Exclusivo da demonstração estática */
+.aviso-demo {
+  margin: 0;
+  padding: 6px 16px;
+  background: #FFF6DD;
+  border-bottom: 1px solid #E5D18F;
+  font-size: 11px;
+  text-align: center;
+}

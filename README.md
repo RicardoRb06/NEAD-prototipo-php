@@ -69,10 +69,27 @@ composer test
 
 Os testes usam SQLite em memória, então não tocam no banco MySQL.
 
+## Demonstração no GitHub Pages
+
+**Demo:** <https://ricardorb06.github.io/NEAD-prototipo-php/> (usuário `admin`, senha `admin`).
+
+O GitHub Pages não executa PHP nem MySQL, então a demo é um site estático gerado a partir desta
+aplicação. Ela usa as mesmas views e os PDFs reais, mas a busca e o login acontecem no navegador,
+sem nenhuma proteção. Por isso, publique nela **apenas dados fictícios**.
+
+Para atualizar a demo, com o banco já populado, gere o site:
+
+```bash
+php spark demo:exportar
+```
+
+O resultado fica em `build/pages`. Publique o conteúdo dessa pasta na branch `gh-pages`.
+
 ## Estrutura
 
 ```text
 app/
+├── Commands/            Exportação da demonstração estática
 ├── Config/Routes.php    Rotas e os filtros de acesso de cada uma
 ├── Controllers/         Recebem a requisição e devolvem a resposta
 ├── Database/
@@ -83,6 +100,7 @@ app/
 ├── Libraries/           Regras acadêmicas, filtro da busca, autenticação e PDF
 ├── Models/              Consultas ao banco
 └── Views/               Layout, telas, paginação e modelo do PDF
+demo/                    Scripts exclusivos da demonstração estática
 public/assets/           CSS e JavaScript
 tests/                   Testes unitários e de integração
 ```
