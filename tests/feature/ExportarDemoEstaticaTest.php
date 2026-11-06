@@ -39,7 +39,7 @@ final class ExportarDemoEstaticaTest extends TesteComBanco
         $busca = (string) file_get_contents($this->destino . '/busca.html');
 
         foreach ([$login, $busca] as $pagina) {
-            $this->assertStringContainsString('Demonstração estática', $pagina);
+            $this->assertStringNotContainsString('aviso-demo', $pagina);
             $this->assertStringContainsString('noindex', $pagina);
             $this->assertStringNotContainsString(base_url(), $pagina);
             $this->assertStringNotContainsString(csrf_token(), $pagina);

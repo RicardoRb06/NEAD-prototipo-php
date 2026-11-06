@@ -83,7 +83,6 @@ class ExportarDemoEstatica extends BaseCommand
     {
         $arquivos = [
             FCPATH . 'assets/css/style.css'    => '/assets/css/style.css',
-            ROOTPATH . 'demo/assets/css/demo.css' => '/assets/css/demo.css',
             ROOTPATH . 'demo/assets/js/login.js'  => '/assets/js/login.js',
             ROOTPATH . 'demo/assets/js/busca.js'  => '/assets/js/busca.js',
         ];
@@ -152,16 +151,7 @@ class ExportarDemoEstatica extends BaseCommand
         $html = str_replace(
             '</head>',
             '    <meta name="robots" content="noindex">' . "\n"
-            . '        <link rel="stylesheet" href="assets/css/demo.css">' . "\n"
             . '    </head>',
-            $html,
-        );
-
-        $html = str_replace(
-            '<main class="conteudo">',
-            '<p class="aviso-demo">Demonstração estática com dados fictícios. O sistema completo roda em PHP, '
-            . 'CodeIgniter e MySQL: <a href="https://github.com/RicardoRb06/NEAD-prototipo-php">ver o código</a>.</p>'
-            . "\n" . '            <main class="conteudo">',
             $html,
         );
 
