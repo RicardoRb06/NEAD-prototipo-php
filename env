@@ -1,0 +1,12 @@
+# Modelo de configuração: copie para .env, que não vai para o Git.
+# Valores padrão para o XAMPP (usuário root, sem senha).
+
+CI_ENVIRONMENT = development
+
+app.baseURL = 'http://localhost:8080/'
+
+database.default.hostname = localhost
+database.default.database = nead_prototipo
+database.default.username = root
+database.default.password =
+database.default.port = 3306
